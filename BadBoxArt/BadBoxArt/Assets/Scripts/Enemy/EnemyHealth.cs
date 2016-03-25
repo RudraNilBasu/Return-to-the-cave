@@ -5,11 +5,18 @@ public class EnemyHealth : MonoBehaviour {
 
 	[SerializeField]
 	float health = 300.0f;
+	float maxHealth = 300.0f;
 	public bool isDead = false;
+
+	[SerializeField]
+	GameObject statusIndicator;
 	// Use this for initialization
 	void Start () 
 	{
 		isDead = false;
+		if (statusIndicator == null) {
+			Debug.LogError ("NOT ASSIGNED");
+		}
 	}
 	
 	// Update is called once per frame
@@ -24,6 +31,12 @@ public class EnemyHealth : MonoBehaviour {
 		if (health <= 0) {
 			Debug.Log ("Dead");
 			isDead = true;
+		}
+		if (health >= 0) {
+			statusIndicator.GetComponent<StatusIndicator> ().SetHealth ((int)health, (int)maxHealth);
+		} else {
+			statusIndicator.GetComponent<StatusIndicator> ().SetHealth (0, (int)maxHealth);
+		
 		}
 	}
 	/*
