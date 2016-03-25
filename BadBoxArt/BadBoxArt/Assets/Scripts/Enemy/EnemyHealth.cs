@@ -31,12 +31,12 @@ public class EnemyHealth : MonoBehaviour {
 		if (health <= 0) {
 			Debug.Log ("Dead");
 			isDead = true;
+			Destroy (gameObject);
 		}
 		if (health >= 0) {
 			statusIndicator.GetComponent<StatusIndicator> ().SetHealth ((int)health, (int)maxHealth);
 		} else {
 			statusIndicator.GetComponent<StatusIndicator> ().SetHealth (0, (int)maxHealth);
-		
 		}
 	}
 	/*

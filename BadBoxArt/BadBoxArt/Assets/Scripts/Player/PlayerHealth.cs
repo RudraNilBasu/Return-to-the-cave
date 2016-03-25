@@ -48,10 +48,10 @@ public class PlayerHealth : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll)
 	{
-		if (coll.gameObject.tag == "Enemy") {
-			if (coll.gameObject.name == "WildBull") {
+		if (coll.gameObject.tag == "Enemy" ) {
+			if (coll.gameObject.name == "WildBull" || coll.gameObject.name == "WildBull(Clone)") {
 				damage (40.0f);
-			} else if (coll.gameObject.name == "Dog") {
+			} else if (coll.gameObject.name == "Dog" || coll.gameObject.name == "Dog(Clone)") {
 				damage (10.0f);
 			}
 		}
