@@ -15,11 +15,15 @@ public class WeaponThrow : MonoBehaviour {
 
 	GameObject Player;
 
+	[SerializeField]
+	GameObject indicator;
+
 	// Use this for initialization
 	void Start () 
 	{
 		isEquiped = true;
 		Player = GameObject.Find ("player");
+		indicator.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -43,8 +47,11 @@ public class WeaponThrow : MonoBehaviour {
 			float distance = Vector3.Distance (shootPosn, transform.position);
 
 			if (distance >= range) {
+
 				shouldMove = false;
 				canEquipe = true;
+
+				indicator.SetActive (true);
 			}
 
 			// if it collides with other stuff
@@ -63,6 +70,8 @@ public class WeaponThrow : MonoBehaviour {
 				hasThrown = false;
 				shouldMove = false;
 				canEquipe = false;
+
+				indicator.SetActive (false);
 			}
 			Debug.Log ("Keep option for exchanging weapons");
 		}

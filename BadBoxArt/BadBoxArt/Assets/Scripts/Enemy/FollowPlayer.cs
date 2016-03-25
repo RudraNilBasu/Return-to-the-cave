@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FollowPlayer : MonoBehaviour {
 
+	[SerializeField]
 	float speed=200.0f;
 	Transform target;
 	float damping = 1.0f;
