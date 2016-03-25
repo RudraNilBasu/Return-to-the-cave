@@ -41,5 +41,9 @@ public class EnemyHealth : MonoBehaviour {
 		if (coll.gameObject.tag == "spear") {
 			damage (100.0f);
 		}
+
+		if (coll.gameObject.tag == "rock") {
+			damage (25.0f);
+		}
 	}
 }
